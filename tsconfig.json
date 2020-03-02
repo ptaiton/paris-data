@@ -21,7 +21,10 @@
     "pretty": true,
     "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true,
-    "target": "es2016"
+    "target": "es2016",
+    "plugins": [
+      { "transform": "ts-transformer-keys/transformer" }
+    ]
   },
   "exclude": [
     "node_modules",

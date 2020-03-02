@@ -1,0 +1,1 @@
+export const mkErr = (message: string) => new Error(message)

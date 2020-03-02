@@ -14,15 +14,14 @@ export default (() => {
   return connection
 })()
 
-export const query = <T>(sqlQuery: string) => {
-  return new Promise<T>((resolve, reject) => {
+export const query = <T = any>(sqlQuery: string): Promise<T> =>
+  new Promise<T>((resolve, reject) => {
     connection.query(sqlQuery, (error, results) => {
+      console.log(sqlQuery)
       if(error) {
-        console.log(error)
         reject(error)
       }
-
+      
       resolve(results)
     })
   })
-}

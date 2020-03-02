@@ -6,16 +6,16 @@ module.exports = {
         useBabel: false,
         tsLoader: {
           transpileOnly: true,
-          experimentalWatchApi: true,
+          experimentalWatchApi: true
         },
         forkTsChecker: {
           tsconfig: './tsconfig.json',
           eslint: true,
           tslint: undefined,
           watch: './src',
-          typeCheck: true,
-        },
-      },
-    },
-  ],
-};
+          typeCheck: true
+        }
+      }
+    }
+  ]
+}

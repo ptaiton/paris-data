@@ -1,0 +1,9 @@
+{
+  "javascript.validate.enable": false,
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  }
+}

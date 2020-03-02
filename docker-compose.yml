@@ -9,7 +9,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./migrations:/docker-entrypoint-initdb.d
     environment:
       MYSQL_USER: paris_data
       MYSQL_PASSWORD: paris_data

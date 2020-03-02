@@ -1,19 +1,14 @@
 import { query } from './dbService'
-import { ContentType } from '../../types/ContentType'
 import { eventsToCsv } from './writers/csvWriter'
 import { eventsToXML } from './writers/xmlWriter'
 import { eventsToJSON } from './writers/jsonWriter'
+import { ContentType } from '../../types/ContentType'
 import { Event } from '../../types/Event'
 
-export const writers = {
+const writers = {
   [ContentType.CSV]: eventsToCsv,
   [ContentType.XML]: eventsToXML,
-  [ContentType.JSON]: eventsToJSON
-}
-
-export const getCsvEvents = async (contentType: ContentType) => {
-  const events = await fetchAllEvents()
-  return writers[contentType](events)
+  [ContentType.JSON]: eventsToJSON,
 }
 
 const fetchAllEvents = () => {
@@ -21,3 +16,8 @@ const fetchAllEvents = () => {
   return query<Event[]>(sqlQuery)
 }
 
+export const exportEvents = async (contentType: string) => {
+  const events = await fetchAllEvents()
+
+  events.map(writers[contentType]())
+}
